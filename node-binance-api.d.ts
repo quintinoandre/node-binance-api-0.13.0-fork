@@ -95,7 +95,7 @@ declare module "node-binance-api" {
          */
         subscriptions(...args: any): any[];
         subscriptions(...args: any): any;
-        
+
         /**
          * Terminates a web socket
          * @param {string} endpoint - the string associated with the endpoint
@@ -200,6 +200,15 @@ declare module "node-binance-api" {
          */
         prevDay(symbols: _symbol | _symbol[], callback: _callback, singleCallback: boolean): string;
         prevDay(...args: any): any;
+
+        /**
+         * Multiple <symbol>@bookTicker streams can be subscribed to over one connection.
+         * @param {array/string} symbols - an array or string of symbols to query
+         * @param {function} callback - callback function
+         * @return {string} the websocket endpoint
+         */
+        multiBookTickers(symbols: _symbol | _symbol[], callback: _callback): string;
+        multiBookTickers(...args: any): any;
     }
 
     interface IConstructorArgs {
@@ -751,7 +760,7 @@ declare module "node-binance-api" {
         */
         aggTrades(symbol: _symbol, options?: any, callback?: _callback): Promise<any>;
         aggTrades(...args: any): any;
-        
+
         /**
         * Get the recent trades
         * @param {string} symbol - the symbol
@@ -1405,7 +1414,7 @@ declare module "node-binance-api" {
          * Futures WebSocket mark price
          * @param {symbol} symbol name or false. can also be a callback
          * @param {function} callback - callback function
-         * @param {string} speed - 1 second updates (@1s). leave blank for default 3 seconds 
+         * @param {string} speed - 1 second updates (@1s). leave blank for default 3 seconds
          * @return {string} the websocket endpoint
          */
         futuresMarkPriceStream(symbol?: _symbol, callback?: _callback, speed?: string): string;

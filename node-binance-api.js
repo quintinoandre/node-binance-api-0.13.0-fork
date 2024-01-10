@@ -3025,7 +3025,7 @@ let api = function Binance( options = {} ) {
         orderStatus: function ( symbol, orderid, callback, flags = {} ) {
             let parameters = Object.assign( { symbol: symbol }, flags );
             if (orderid){
-				parameters = Object.assign( { orderId: orderid }, parameters )
+							parameters = Object.assign( { orderId: orderid }, parameters )
             }
 
             if ( !callback ) {
@@ -5924,7 +5924,27 @@ let api = function Binance( options = {} ) {
                     }, reconnect );
                 }
                 return subscription.endpoint;
-                        }
+            },
+
+            /**
+             * Multiple <symbol>@bookTicker streams can be subscribed to over one connection.
+             * @param {array/string} symbols - an array or string of symbols to query
+             * @param {function} callback - callback function
+             * @return {string} the websocket endpoint
+             */
+            multiBookTickers: function multiBookTickers( symbols, callback ) {
+                const reconnect = () => {
+                    if ( Binance.options.reconnect ) this.multiBookTickers( symbols, callback );
+                };
+
+                // Combine stream for array of symbols
+								if ( !isArrayUnique( symbols ) ) throw Error( 'multiBookTickers: "symbols" cannot contain duplicate elements.' );
+								const streams = symbols.map( function ( symbol ) {
+										return symbol.toLowerCase() + '@bookTicker';
+								} );
+								const subscription = subscribeCombined( streams, data => callback( fBookTickerConvertData( data ) ), reconnect );
+                return subscription.endpoint;
+            }
         }
     };
 }
