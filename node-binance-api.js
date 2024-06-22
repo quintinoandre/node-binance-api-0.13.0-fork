@@ -478,9 +478,6 @@ let api = function Binance( options = {} ) {
 
     // Futures internal functions
     const futuresOrder = async ( side, symbol, quantity, price = false, params = {} ) => {
-        console.log("side", side)
-        console.log("symbol", symbol)
-        console.log("quantity", quantity)
         params.symbol = symbol;
         params.side = side;
         if ( quantity ) params.quantity = quantity;
