@@ -1,6 +1,6 @@
 {
   "projectName": "node-binance-api",
-  "projectOwner": "jaggedsoft",
+  "projectOwner": "quintinoandre",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -11,12 +11,23 @@
   "commitConvention": "none",
   "contributors": [
     {
+      "login": "quintinoandre",
+      "name": "Luiz Duarte",
+      "avatar_url": "https://github.com/quintinoandre.png",
+      "profile": "https://github.com/quintinoandre",
+      "contributions": [
+        "question",
+        "maintenance",
+        "code"
+      ]
+    },
+    {
       "login": "jaggedsoft",
       "name": "Jon Eyrick",
       "avatar_url": "https://avatars3.githubusercontent.com/u/4283360?v=4",
       "profile": "https://liquidity.ltd/",
       "contributions": [
-        "question", "maintenance", "code"
+        "code"
       ]
     },
     {
@@ -448,9 +459,10 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/19227776?v=4",
       "profile": "https://github.com/tripolskypetr",
       "contributions": [
-        "maintenance", "code"
+        "maintenance",
+        "code"
       ]
-    },
+    }
   ],
   "contributorsPerLine": 7
 }
