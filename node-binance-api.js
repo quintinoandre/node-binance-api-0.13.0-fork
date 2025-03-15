@@ -3022,7 +3022,7 @@ let api = function Binance( options = {} ) {
         * @param {object} flags - any additional flags
         * @return {promise or undefined} - omitting the callback returns a promise
         */
-        orderStatus: function (symbol, orderid, callback, flags = {}) {
+        orderStatus: function ( symbol, orderid, callback, flags = {} ) {
             let parameters = Object.assign({ symbol: symbol }, flags);
             if (orderid) {
                 parameters = Object.assign({ orderId: orderid }, parameters)
@@ -5400,7 +5400,7 @@ let api = function Binance( options = {} ) {
                     if ( Binance.options.reconnect ) userFutureData( margin_call_callback, account_update_callback, order_update_callback, subscribed_callback )
                 }
 
-                apiRequest(url + 'v1/listenKey', {}, function (error, response) {
+                apiRequest( url + 'v1/listenKey', {}, function (error, response) {
                     if (error || !response.listenKey) {
                         console.error(`Error requesting a listen key:\n${error.message}\n${error.stack}\nTrying again in one minute.`);
                         return setTimeout(reconnect, 60000);

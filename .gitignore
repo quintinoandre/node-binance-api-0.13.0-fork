@@ -39,6 +39,7 @@ Thumbs.db
 # Secrets #
 ###########
 .secret
+.env
 
 # Node #
 ########
@@ -58,4 +59,3 @@ node_modules
 
 # code coverage"
 coverage
-
